@@ -1,0 +1,195 @@
+:root {
+    color-scheme: light;
+
+    --border: 1px;
+
+    --white: hsl(0 0% 100%);
+    --light: hsl(0 0% 95%);
+    --loft: hsl(0 0% 80%);
+
+    --action: hsl(30 60% 80%);
+    --highlight: hsl(30 100% 95%);
+    --onhighlight: hsl(30 100% 60%);
+    --link: hsl(210 100% 95%);
+    --onlink: hsl(210 100% 60%);
+    --green: hsl(120 100% 95%);
+    --ongreen: hsl(120 100% 60%);
+
+    --paper: hsl(0 0% 100%);
+    
+}
+p:not(article p:first-of-type) {
+    text-indent: 3em;
+}
+article p:first-of-type {
+    font-weight: normal;
+    margin: unset;
+    padding: unset;
+}
+article p:not(blockquote p):first-of-type::first-letter {
+    float: left;
+    text-transform: uppercase;
+    line-height: .5em;
+    font-size: 5em;
+    margin-top: .1em;
+    margin-right: .15em;
+}
+article p:not(blockquote p):first-of-type::first-line {
+    font-weight: bold;
+    font-size: 1em;
+    text-transform: uppercase;
+}
+a:link {
+    color: unset;
+    text-decoration-line: unset;
+}
+a:hover {
+    color: var(--loft);
+    text-decoration-line: unset;
+    filter: brightness(105%);
+}
+a:active {
+    color: var(--light);
+}
+a:visited:hover {
+    color: var(--loft);
+    text-decoration-line: dotted;
+}
+.col {
+    columns: auto 12em;
+}
+
+
+.item {
+    display: grid;
+    align-content: start;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(3em, 1fr));
+    grid-template-rows: auto;
+    grid-auto-flow: row;
+    gap: .125em;
+    box-sizing: border-box;
+    padding: 1em;
+}
+item :first-child {
+    grid-area: auto / span 2;
+}
+item :last-child {
+    grid-area: auto / span 2;
+}
+.item *:hover {
+    grid-area: auto / span 3;
+}
+
+details[open] nav {
+    width: auto;
+    height: calc(100vh - 4.5rem);
+    
+    display: grid;
+    place-content: center;
+    grid-template-columns: 1fr;
+    gap: 1em;
+
+    font-family: monospace;
+    text-align: center !important;
+    letter-spacing: unset;
+}
+
+details ::marker {
+    content: '\002B' ' ';
+}
+details[open] ::marker {
+    content: '\2212' ' ';
+}
+article p :not(::marker) {
+    text-indent: 3em;
+}
+.open-conteiner {
+    width: 16em;
+    height: 16em;
+    overflow: scroll;
+}
+.opener {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1em;
+}
+.align a {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12em, 1fr));
+    grid-template-rows: auto;
+    gap: unset;
+    text-decoration: unset;
+    padding: unset;
+}
+.a a:hover {
+    background-color: var(--light) !important;
+}
+.a a summary {
+    place-content: center;
+    text-align: center;
+    overflow: clip;
+    padding: unset;
+}
+a a summary * {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: pre;
+}
+.array {
+    inline-size: auto;
+    block-size: 100vh;
+    
+    display: grid;
+    grid: auto-flow 100% / 1fr;
+    gap: 1em;
+
+    scroll-snap-type: y proximity;
+    overflow-y: auto;
+    touch-action: pan-y;
+}
+.array a {
+    scroll-snap-align: start;
+    scroll-margin: 1em;
+}
+.reel {
+    scroll-snap-type: x mandatory;
+    overflow-x: scroll;
+    display: flex;
+    overscroll-behavior: contein;
+    touch-action: pan-x;
+}
+.reel img {
+    padding: 1em;
+    scroll-snap-align: center;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+    border-radius: 10px;
+    border: 1px solid var(--color-stroke);
+}
+
+.area {
+    max-inline-size: 56em;
+    inline-size: auto;
+    block-size: auto;
+    text-align: center;
+
+    display: grid;
+    align-content: start;
+    justify-content: center;
+    grid: auto / repeat(3, 1fr);
+    grid-auto-flow: dense;
+    gap: 1.5em;
+    padding: 1.5em;
+    margin: auto;
+}
+.area :first-child {
+    grid-column: auto / span 2;
+    grid-row: auto / span 2;
+}
+.area img {
+    aspect-ratio: 1 / 1 !important;
+    object-fit: cover !important;
+}
